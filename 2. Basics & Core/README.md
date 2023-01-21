@@ -1,11 +1,1 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Document</title>
-  </head>
-  <body>
-    Document
-  </body>
-</html>
+Часть 2 - 29 уроков - Основы и основные концепции - Взаимодействие DOM с Vue 
