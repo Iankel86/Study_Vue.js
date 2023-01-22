@@ -18,7 +18,9 @@
     </header>
     <section id="user-goal">
       <h2>My Course Goal</h2>
-      <p>{{ courseGoal }}</p>
+      <!-- <p v-html="outputGoal()"></p>  - это как пример, как можно еще -->
+      <p>{{ outputGoal() }}</p> <!-- но при помощи двойных ковычек {{}} мы обходим межсайтовые скриптовые атаки -->
+      <p>Learn more <a v-bind:href="vueLink">about Vue</a>.</p>
     </section>
-  </body>s
+  </body>
 </html>
