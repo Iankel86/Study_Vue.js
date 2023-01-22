@@ -27,4 +27,4 @@ const app = Vue.createApp({
   }
 });
 
-app.mount('#events');
+app.mount('#events');   // монтируем приложение по ip
