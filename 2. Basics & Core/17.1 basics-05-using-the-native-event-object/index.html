@@ -18,11 +18,15 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add(10)">Add 10</button>
+      <button @click="add(10)">Add 10</button>       <!--@click и v-on:click - это ОДНО и ТОЖЕ, можно записывать и так и так, но лучше придерживаться 1 стиля-->
       <button v-on:click="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Schwarzmüller')">
-      <p>Your Name: {{ name }}</p>
+      <!-- <input type="text" v-bind:value="name" v-on:input="setName($event, 'Schwarzmüller')">    а теперь это можно заменить ДИРЕКТОРИЕЙ v-model=""-->
+      <input type="text" v-model="name">  <!-- концепция двусторонней привязки-->
+      <input type="text" v-model="lastName">  <!-- концепция двусторонней привязки-->
+      <button @click="resetInput">Reset Input</button>
+      <p>Your Name: {{ fullname }}</p>    <!-- ранее было не по очень правильному сделано, но рабочее - outputFullname() -->
+      
     </section>
   </body>
 </html>
