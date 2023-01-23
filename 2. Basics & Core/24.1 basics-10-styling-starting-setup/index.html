@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <div 
+        class="demo"
+        :class="boxAClasses"
+        @click="boxSelected('A')"
+      ></div>
+      <!-- :style="{borderColor: boxA ? 'red' : '#ccc'}" Мjжно лучше сделать, путем прописания в scc файла .-->
+      <!-- :class="boxA ? 'demo active' : 'demo'" Это второй вариант, но не совсем удобночитаемый.-->
+      <!-- :class="{active: boxA}" - 3 Вариант - Это динамтческая привязка класса. меньший код, удобно читать -->
+
+      <!-- если boxA равен (?), то (:) мы ставим рамку красным цветом ('red'), в противном случае будет серая ('#ccc')) -->
+      <!-- это троичное выражение по JS, это спец функция поддерживаемая специально для атрибута style -->
+      <div 
+        :class="['demo', {active: boxB}]"
+        @click="boxSelected('B')"
+      ></div>
+      <div 
+        class="demo"
+        :class="{active: boxC}"
+        @click="boxSelected('C')"
+      ></div>
+    </section>
+  </body>
+</html>
