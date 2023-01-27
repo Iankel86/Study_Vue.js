@@ -18,16 +18,19 @@
     </header>
     <section id="assignment">
       <h2>Assignment</h2>
-      <!-- 1) Add code to manage a list of tasks in a Vue app -->
-      <!-- When clicking "Add Task" a new task with the entered text should be added -->
-      <input type="text">
-      <button>Add Task</button>
-      <ul>
-        <!-- 2) Output the list of tasks here -->
+      <!-- 1) Добавьте код для управления списком задач в приложении Vue -->
+      <!-- При нажатии кнопки "Добавить задачу" должна быть добавлена новая задача с введенным текстом -->
+      <input type="text"  v-model='enteredValue'> <!-- 3. -->
+      <button @click="addTask">Add Task</button> <!-- 4. нужно действие по счелчку кнопки  8. Подключем кнопку к addTask-->
+      <ul v-if="taskListIsVisible">   <!-- 15. передаем как условие-->
+        <!-- 2) Выведите список задач здесь -->
+        <li v-for="task in tasks" :key="task">{{ task }}</li>     <!-- 9. решаем 2) задачу: создаем список  10. Добавляем ключ -->
       </ul>
-      <!-- 3) When the below button is pressed, the list should be shown or hidden -->
-      <!-- BONUS: Also update the button caption -->
-      <button>Hide / Show List</button>
+      <!-- 3) При нажатии кнопки ниже список должен быть показан или скрыт -->
+      <!-- БОНУС: также обновите заголовок кнопки -->
+      <button @click="toggleTaskList">{{ buttonCaption }}</button>   <!-- 14. 16. и 20. решаем 3) задачу: 14. добавляем клик   16. теперь делаем включение и выключение кнопки (смена) 20. {{ buttonCaption }}-->
+      <!-- по 16. по замене можно был осделать в этом html файле вот так: <button @click="toggleTaskList">{{ taskListIsVisible ? 'Hide' : 'Show'}} List</button> -->
+      <!-- по 16. но добавим в js вычисляемое св-во -->
     </section>
   </body>
 </html>
