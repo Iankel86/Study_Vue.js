@@ -20,24 +20,36 @@
       <section id="monster" class="container">
         <h2>Monster Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value" :style="monsterBarStyles"></div>      <!-- (17 и 23)     23. заменили длинной код на св-во и убрали логику из html кода  17. {width: monsterHealth + '%'}    задаем ширину и потом указываем какое св-во меняем - {}  -->
         </div>
       </section>
       <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value"  :style="playerBarStyles"></div>     <!-- (18 и 24)    24. заменили длинной код на св-во и убрали логику из html кода   18. {width: monsterHealth + '%'}    задаем ширину и потом указываем какое св-во меняем - {}  -->
         </div>
       </section>
-      <section id="controls">
-        <button>ATTACK</button>
-        <button>SPECIAL ATTACK</button>
-        <button>HEAL</button>
-        <button>SURRENDER</button>
+      <section class="container" v-if="winner">           <!--(51 и 60) 60. прописываем v-if="winner"и если winner= null, то раздел не появится и НАОБОРОТ 51. Создаем новый раздел -->
+        <h2>Game Over!</h2>                               <!--52. Игра окончера -->
+        <h3 v-if="winner === 'monster'">You Lost!</h3>    <!--(53 и 61) 61. Если победитель = монстру- то ты ПРОИГРАЛ       53. Ты проиграл -->
+        <h3 v-else-if="winner === 'player'">You won!</h3> <!--(54 и 62) 62. Иначе если Игрок Выйграл    54. Ты выйграл -->
+        <h3 v-else>It's a draw!</h3>                      <!--(55 и 63) 63. Иначе Ничья        55. Ничья -->
+        <button @click="startGame">Start New Game</button> <!--(66 и 72.). 72. прописываем @click="startGame", т.к. метод startGame сделан     66.Создаем кнопку - Начать новую Игру.-->
+      </section>                                          <!--51. -->
+      <section id="controls" v-else>                      <!--76. при помощи (v-else) отображается эта секция только если у нас нет победителя с непобедителем, если проиграл кто либо видно только кнопку ПЕРЕЗАПУСТИТЬ -->
+        <button @click="attackMonster">ATTACK</button>    <!-- 16. можно был опрописать v-on:click, но прописал сокращенно -->
+        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>    <!--(29 и 32 и 35) 35. прописали код mayUseSpecialAttack  32. - disabled - динамическое значение, где делим райнд на 3 и не останется остатка от 0. 29. можно был опрописать v-on:click, но прописал сокращенно -->
+        <button @click="healPlayer">HEAL</button>         <!--42. подключаем кнопку! -->
+        <button @click="surrender">SURRENDER</button>     <!--75. подключаем кнопку к методу surrender! -->
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="logMessage in logMessages">            <!--86. выводим сообщения !!!! просмотреть через (in) и затем получить доступ к каждому отдельному сообщению журнала (logMessage) -->
+            <span>{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}</span> <!--87. Добавляем Инициатор действия Проверить - ровно ли действие по игроку ? иначе это будет монстр -->
+            <span></span>                                   <!--88. делаем еще 1 действие - здесь мы наносим урон или исцеляемся сами -->
+          </li>      
+        </ul>
       </section>
     </div>
   </body>
