@@ -18,11 +18,29 @@
     </header>
     <section id="user-goals">
       <h2>My course goals</h2>
-      <input type="text" />
-      <button>Add Goal</button>
-      <p>No goals have been added yet - please start adding some!</p>
-      <ul>
-        <li>Goal</li>
+      <input type="text" v-model="enteredGoalValue"/>
+      <!-- и на кнопке добавить цель, из метода, чтобы нажимая на кнопку выполнялся метод (@click="addGoal): -->
+      <button @click="addGoal">Add Goal</button>
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+      <!-- при помощи  v-if="goals.length > 0" проверяем больше 0 длинна цели или нет, т.к. если больше, то список будет видно-->
+      <ul v-else>
+      <!-- или можно было прописать просто v-if="goals.length > 0", результат был бы тем же -->
+        <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+          <!-- :key="" - ключевой атрибут, очень важен при удалении.  -->
+          <p>{{goal}} - {{index}}</p>
+          <input type="text" @click.stop>
+        </li>
+        <!-- при помощи @click="removeGoal(index) мы можем удалять элементы если кникнуть по ним -->
+        <!-- здесь перебираем массив, при этом каждая цель прописывается ниже другой не заменяя, а продолжая -->
+        <!-- при этом данные просто добавляются, списки не трогаются, и не перезаписываются , тем самым мнижая загрузку и увеличивая производительности -->
+        <ul>
+          <!-- но можно не только перебирать массивы, но и объекты (да реже, чем массивы, то все равно) -->
+          <li v-for="(value, key, index) in {name: 'Ian', age: 36}">{{key}}: {{value}} - {{index}}</li>
+        </ul>
+        <ul>
+          <!-- можно перебирать диапозон чисел (для примера) -->
+          <li v-for="num in 10">{{num}}</li>
+        </ul>
       </ul>
     </section>
   </body>
