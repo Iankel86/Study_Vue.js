@@ -16,24 +16,24 @@
     <header>
       <h1>FriendList</h1>
     </header>
-    <section id="app">
+    <section id="app">       
       <ul>
-        <li>
-          <h2>Manuel Lorenz</h2>
-          <button>Show Details</button>
-          <ul>
-            <li><strong>Phone:</strong> 01234 5678 991</li>
-            <li><strong>Email:</strong> manuel@localhost.com</li>
-          </ul>
-        </li>
-        <li>
-          <h2>Julie Jones</h2>
-          <button>Show Details</button>
-          <ul>
-            <li><strong>Phone:</strong> 09876 543 221</li>
-            <li><strong>Email:</strong> julie@localhost.com</li>
-          </ul>
-        </li>
+                  <!--МЫ СОЗДАЛИ СВОЙ компонент, который ниже подключит э тот код перенесем туда-->
+        <!--<li v-for="friend in friends" :key="friend.id">         <!--1. просматриваем всех друзей в свойстве друзей + прописываем ключ-->
+        <!--  <h2>{{ friend.name }}</h2>                            <!--2. прописываем связку имен c js-->
+        <!--  <button @click="toggleDetails">Show Details</button>  <!--7. прописываем по клику связь с js -->
+        <!--  <ul v-if="detailsAreVisible">                         <!--8. теперь после того, как свизяли js - detailsAreVisible с html, список скроется, т.к стоит false,
+             ТОЛЬКО ВОТ скрываются и открываются Одновременно у ВСХ карточек!!!!! А это неудобно-->
+        <!--    <li><strong>Phone:</strong>{{ friend.phone }}</li>  <!--3. прописываем связку телефонов c js-->
+        <!--    <li><strong>Email:</strong>{{ friend.email }}</li>  <!--4. прописываем связку адресов почты c js-->
+        <!--  </ul>
+        </li>-->
+
+        <friend-contact></friend-contact>     <!--12 подключаем НАШ шаблон html, он будет работать ,т.к. находится в нашем Vue подключенном -->
+        <friend-contact></friend-contact> 
+        <friend-contact></friend-contact> 
+        <friend-contact></friend-contact> 
+        <friend-contact></friend-contact>
       </ul>
     </section>
   </body>
