@@ -49,7 +49,7 @@ app.component('friend-contact', {       // 9. Подключаем компон�
     data() {
         return {
             detailsAreVisible: false,      // 11. Перекидываем из Vue.createApp - data
-            friends: {
+            friend: {
                 id: 'dmitriy', 
                 name: 'Дмитрий Рогов', 
                 phone: ' 8 995 456 45 46', 
