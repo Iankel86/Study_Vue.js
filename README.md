@@ -1,6 +1,4 @@
 ### Примеры по курсу изучения Vue.js:
-https://studio.youtube.com/channel/UC3Y8j_d2MA4IT7M1PJF-yaA/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D
-
 
 - **Часть 2** - 29 уроков. Основы и основные концепции - Взаимодействие DOM с Vue
 - **Часть 3** - 11 уроков. Рендеринг условного содержимого и списков
