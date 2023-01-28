@@ -19,6 +19,10 @@ https://www.youtube.com/watch?v=8DMQylZhaP4
 - npm run serve	- для запуска нужно ввести эту команду!
 - npm install	- запускает зависимости в проекте
 
+**Решает вопрос с запуском**
+- export NODE_OPTIONS=--openssl-legacy-provider
+
 **App running at:**
   - Local:   http://localhost:8081/
   - Network: http://192.168.0.109:8081/
+
