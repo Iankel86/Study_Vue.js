@@ -54,32 +54,31 @@ const app = Vue.createApp({     // 1.   создаем приложенеи пр
 
     methods: {                                          // 7. создаем методы, т.к. это действия в нашей игре
         startGame() {                                   // 67. Создаем новый метод по ЗАПУСКУ НОВОЙ ИГРЫ путем нажатия кнопки Start New Game !!
-            this.playerHealth = 100,                    // 68. ВЕРНУТЬ здоровье игрока с 100%
-            this.monsterHealth = 100,                   // 69. ВЕРНУТЬ здоровье монстра с 100%
-            this.correntRound = 0,                      // 70. ВЕРНУТЬ текущий раунд с 0
-            this.winner = null,                         // 71. ВЕРНУТЬ первоначальное значение нулевое, никто не выйграл, т.к. игра только началась
-            this.logMessage = []                        // 78. скидываем массив до первоначального (пустого)
+            this.playerHealth = 100;                    // 68. ВЕРНУТЬ здоровье игрока с 100%
+            this.monsterHealth = 100;                   // 69. ВЕРНУТЬ здоровье монстра с 100%
+            this.correntRound = 0;                      // 70. ВЕРНУТЬ текущий раунд с 0
+            this.winner = null;                         // 71. ВЕРНУТЬ первоначальное значение нулевое, никто не выйграл, т.к. игра только началась
+            this.logMessages = [];                        // 78. скидываем массив до первоначального (пустого)
         },
         attackMonster() {                               // 8. атака монстра
             this.correntRound++;                        // 31. увеличиваем раунд на 1
             const attackValue = getRandomValue(5, 12);  // 13. когда сделал function getRandomValue,  было так до этого:     Math.floor(Math.random() * (12 - 5)) + 5;  // 9. задаем рандомное число от 5-12 и потом округляем до десятичных пр ипомощи Math.floor, и потом добавляем минимальное число 5
             this.monsterHealth -=attackValue;           // 10. из здоровья монстра вычитаем полученый урон от атаки ( можно было написать длиннее:  this.monsterHealth - attackValue;)
-            this.addLogMessage('player', 'attack', attackValue) // 82. Сообщение об атаке
+            this.addLogMessage('player', 'attack', attackValue); // 82. Сообщение об атаке
             this.attackPlayer();                        // 15. сделали атаку игрока сразу после атаки монстра
-            if (playerHealth < 0) {  // 44. НАЧИНАЕМ создавать бой до нуля 0 - ЕСЛИ здоровье у игрока раньше станет 0 , то он ПРОИГРАЛ
-
-            }
+            //if (playerHealth < 0) {  // 44. НАЧИНАЕМ создавать бой до нуля 0 - ЕСЛИ здоровье у игрока раньше станет 0 , то он ПРОИГРАЛ
+            //}
         },
         attackPlayer() {
             const attackValue = getRandomValue(8, 15);  // 14. когда сделал function getRandomValue,  было так до этого:     Math.floor(Math.random() * (15 - 8)) + 8;  // 11. задаем рандомное число от 8-15 (т.к. монстр бьет сильнее =) ) и потом округляем до десятичных пр ипомощи Math.floor, и потом добавляем минимальное число 8
             this.playerHealth -=attackValue;            // 12. из здоровья  игрока вычитаем полученый урон от атаки ( можно было написать длиннее:  this.monsterHealth - attackValue;)
-            this.addLogMessage('monster', 'attack', attackValue) // 83. Сообщение об атаке
+            this.addLogMessage('monster', 'attack', attackValue); // 83. Сообщение об атаке
         },
         specialAttackMonster () {                       // 25. создаем спец атаку монстра
             this.correntRound++;                        // 32. увеличиваем раунд на 1
             const attackValue = getRandomValue(10, 25); // 26.
             this.monsterHealth -=attackValue;           // 27.
-            this.addLogMessage('player', 'attack', attackValue) // 84. Сообщение об атаке Игроком
+            this.addLogMessage('player', 'attack', attackValue); // 84. Сообщение об атаке Игроком
             this.attackPlayer();                        // 85..................
 
         },
@@ -93,25 +92,22 @@ const app = Vue.createApp({     // 1.   создаем приложенеи пр
             } else {                                    // 41. и если занчение не превышает 100 пополняем его, чтобы гарантированно не было больше 100
                 this.playerHealth += healValue;         // 41.
             }
-            this.addLogMessage('player', 'heal', healValue) // 85. Игрок исцеляет себя
+            this.addLogMessage('player', 'heal', healValue); // 85. Игрок исцеляет себя
             this.attackPlayer();                        // 43. как только мы залечимся, монстр сделает атаку, тк. ходы должны быть поочередны
                 
             // this.playerHealth += healValue;          // 38. т.к. потом переиграли
         }, 
-        surrender () {                                  // 73. Создаем метод СДАТЬСЯ !!!  
+        surrender() {                                  // 73. Создаем метод СДАТЬСЯ !!!  
             this.winner = 'monster';                    // 74. если нажать , то победитель Монстр !
         },
         addLogMessage(who, what, value) {               // 76. Добавляем метод - ЖУРНАЛ, метод должен принимать 3 параметра - 1) информаци о том, кто что сделал, 2) что  3) какой ущерб был нанесен?      
-            this.logMessage.unshift({                   // 79. unshift ждобавляет в начало списка сообщения, а не в конец.
+            this.logMessages.unshift({                   // 79. unshift ждобавляет в начало списка сообщения, а не в конец.
                 actionBy: who,                          // 80. Кто
                 actionType: what,                       // 81. Что
-                actionValue: value,                     // 82. Значение
+                actionValue: value                     // 82. Значение
             });                 
         }
-
-    }
-
-
+    },
 });
 
 

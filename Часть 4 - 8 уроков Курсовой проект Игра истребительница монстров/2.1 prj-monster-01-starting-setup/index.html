@@ -46,9 +46,19 @@
         <h2>Battle Log</h2>
         <ul>
           <li v-for="logMessage in logMessages">            <!--86. выводим сообщения !!!! просмотреть через (in) и затем получить доступ к каждому отдельному сообщению журнала (logMessage) -->
-            <span>{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}</span> <!--87. Добавляем Инициатор действия Проверить - ровно ли действие по игроку ? иначе это будет монстр -->
-            <span></span>                                   <!--88. делаем еще 1 действие - здесь мы наносим урон или исцеляемся сами -->
-          </li>      
+            <span
+              :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}" 
+              >{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}   <!--87. Добавляем Инициатор действия Проверить - ровно ли действие по игроку ? иначе это будет монстр -->
+            </span>                                     <!--92. про :class="   в зависимости от того кто  -->
+
+            <span v-if="logMessage.actionType === 'heal'">  <!--88. делаем еще 1 действие - здесь мы наносим урон или исцеляемся сами -->
+              heals himself for <span class="log--heal">{{ logMessage.actionValue }}</span> <!--89. журнал исцеления - типа игрок исцеляет себя и пишет на сколько прошло исцеление, а class="log--heal" это ссылка ан цвет в style.css  -->
+            </span>
+
+            <span v-else>         <!--90. про атаку -->
+              attacks and deals <span class="log--demmage">{{ logMessage.actionValue }}</span>  <!--91. журнал атаки, а class="log--demmage" это ссылка ан цвет в style.css  -->
+            </span>
+          </li>                                   
         </ul>
       </section>
     </div>
