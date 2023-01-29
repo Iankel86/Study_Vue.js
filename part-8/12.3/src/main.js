@@ -2,15 +2,15 @@ import { createApp } from 'vue'
 
 createApp({}).mount('#app')
 
-// Task 1: 
-// Add two components to the app: 
-// An ActiveUser component and an UserData component
-// ActiveUser should output a username (h2) and age (h3)
-// UserData should output two input fields => for name and age
-// Optional: Add styling of your choice
+// Задача 1:
+// Добавьте два компонента в приложение:
+// // Активный пользовательский компонент и компонент пользовательских данных
+// // Активный пользователь должен ввести имя пользователя (h2) и возраст (h3)
+// // Данные пользователя должны выводиться в двух полях ввода => для имени и возраста
+// Необязательно: добавьте стиль по вашему выбору
 
-// Task 2: Output both components side-by-side in your main App template
+// Задача 2: Выведите оба компонента бок о бок в вашем основном шаблоне приложения
 
-// Task 3: Add user data and ensure it contains a name and age
-// User data should be output in ActiveUser
-// It should be updated via the UserData component
+// Задача 3: Добавьте данные пользователя и убедитесь, что они содержат имя и возраст
+// // Пользовательские данные должны выводиться неактивным пользователем
+// // Он должен быть обновлен с помощью компонента пользовательских данных
