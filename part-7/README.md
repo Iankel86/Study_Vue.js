@@ -11,8 +11,8 @@ https://www.youtube.com/watch?v=8DMQylZhaP4
 - 7 Добавление расширения Venture в VS Code (1,16) - с 31.45 мин
 - 8 Подробнее о файлах .vue (1,41) - с 33,00 мин
 - 9 Новый проект Vue (5,07) - с 34,30 мин
-- 10 Создание базового приложения Vue (9,36) - с  мин
-- 11 Добавление компонента (8,18) - с  мин
+- 10 Создание базового приложения Vue (9,36) - с 39,40 мин
+- 11 Добавление компонента (8,18) - с 49.15 мин
 - 12 Добавление стиля (2,17) - с  мин
 
 **Команды по vue:**
@@ -23,6 +23,6 @@ https://www.youtube.com/watch?v=8DMQylZhaP4
 - export NODE_OPTIONS=--openssl-legacy-provider
 
 **App running at:**
-  - Local:   http://localhost:8081/
-  - Network: http://192.168.0.109:8081/
+- Local:   http://localhost:8081/
+- Network: http://192.168.0.109:8081/
 
