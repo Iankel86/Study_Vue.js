@@ -1,6 +1,6 @@
-**Часть 11** - 9 уроков Формы
+**Часть 25** - 13 уроков Использование условных обозначений и списков визуализации VUE2
 
-https://www.youtube.com/watch?v=-0oWXd0mB4I
+https://www.youtube.com/watch?v=hfXCgDbhGiA
 
 
 **Команды по vue:**

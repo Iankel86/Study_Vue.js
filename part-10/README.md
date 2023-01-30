@@ -1,8 +1,6 @@
 **Часть 10** - 13 уроков Проект курса Приложение Учебные ресурсы
 
-https://www.youtube.com/watch?v=Fyn0-ChDddU&list=PL1i-mG8m2agShOnNNB_9CxDZqEa806eRj&index=9&t=11s
-
-- 1 Введение в модуль ()
+https://www.youtube.com/watch?v=wJMGSelgihU
 
 
 **Команды по vue:**

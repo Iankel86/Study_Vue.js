@@ -1,6 +1,6 @@
-**Часть 11** - 9 уроков Формы
+**Часть 26** - 15 уроков Проект первого курса Истребительница монстров VUE2
 
-https://www.youtube.com/watch?v=-0oWXd0mB4I
+https://www.youtube.com/watch?v=ILuY6o-Kf3k
 
 
 **Команды по vue:**

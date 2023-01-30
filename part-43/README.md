@@ -1,6 +1,6 @@
-**Часть 11** - 9 уроков Формы
+**Часть 43** - 17 уроков Бонусная аутентификация в приложениях Vue
 
-https://www.youtube.com/watch?v=-0oWXd0mB4I
+https://www.youtube.com/watch?v=h0oF6oOkLgU
 
 
 **Команды по vue:**
