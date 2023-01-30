@@ -63,24 +63,25 @@ export default {
       // });
 
       this.error = null;
-      fetch('https://vue-http-demo-85e9e.firebaseio.com/surveys.json', {
+
+      fetch('https://vue-http-demo-655a5-default-rtdb.firebaseio.com/surveys.json', {  //при помощи  fetch запрос отправляется на сервер
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
+        body: JSON.stringify({      // выводит ошибку, если данные не ушли на сервер, значит проблема в коде!
           name: this.enteredName,
           rating: this.chosenRating,
         }),
       })
-        .then((response) => {
+        .then((response) => {   // выводит ошибку, если данные не ушли на сервер, значит проблема в коде!
           if (response.ok) {
             // ...
           } else {
-            throw new Error('Could not save data!');
+            throw new Error('Could not save data!');  // выводит ошибку, если данные не ушли на сервер, значит проблема в коде!
           }
         })
-        .catch((error) => {
+        .catch((error) => {       // выводит ошибку, если данные не ушли на сервер, значит проблема в коде!
           console.log(error);
           this.error = error.message;
         });

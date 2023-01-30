@@ -5,11 +5,12 @@
       <div>
         <base-button @click="loadExperiences">Load Submitted Experiences</base-button>
       </div>
-      <p v-if="isLoading">Loading...</p>
-      <p v-else-if="!isLoading && error">{{ error }}</p>
+      <p v-if="isLoading">Loading...</p>  <!-- показывает название загрузки, пока данные подгружаются с сервера -->
+      <p v-else-if="!isLoading && error">{{ error }}</p>  <!-- error №3 это покажет ошибку, если она будет -->
       <p
         v-else-if="!isLoading && (!results || results.length === 0)"
       >No stored experiences found. Start adding some survey results first.</p>
+<!-- !isLoading - так что если мы не загружаемся, !results - но у нас нет результата, || results.length === 0 - или длинна наших резкльтатов =0, т оя хочу показать - Сохранненных текст не найден!  -->
       <ul v-else>
         <survey-result
           v-for="result in results"
@@ -32,23 +33,23 @@ export default {
   data() {
     return {
       results: [],
-      isLoading: false,
-      error: null,
+      isLoading: false,   // это по загрузке данных с сервера, показывает загрузку
+      error: null,    // error №1 первоначальное значение null, т.к. нет ошибки
     };
   },
   methods: {
     loadExperiences() {
-      this.isLoading = true;
-      this.error = null;
-      fetch('https://vue-http-demo-85e9e.firebaseio.com/surveys.json')
-        .then((response) => {
-          if (response.ok) {
+      this.isLoading = true;  // это по загрузке данных с сервера, показывает загрузку
+      this.error = null;    // error №5  сброс значений при загрузке
+      fetch('https://vue-http-demo-655a5-default-rtdb.firebaseio.com/surveys.json')
+        .then((response) => { // then - принемает функцию, как только результат будет получен и потом выполнен браузером, за счет него нет пинга на странице, пока информация идет
+          if (response.ok) {    // response.ok - все ли нормально с ответом от сервера
             return response.json();
           }
         })
-        .then((data) => {
-          this.isLoading = false;
-          const results = [];
+        .then((data) => {     // здесь код по ответу от сервера и вывод у нас на странице
+          this.isLoading = false; // это по загрузке данных с сервера, показывает загрузку
+          const results = [];    // это первоначальный пустой массив, перед получением данных, данные потом заполняют его
           for (const id in data) {
             results.push({
               id: id,
@@ -60,13 +61,13 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.isLoading = false;
-          this.error = 'Failed to fetch data - please try again later.';
+          this.isLoading = false; // это по загрузке данных с сервера, убирает надпись загрузки, т.к. есть ошибка 
+          this.error = 'Failed to fetch data - please try again later.';  // error №2 когда есть ошибка показывет ее пользователю
         });
     },
   },
   mounted() {
-    this.loadExperiences();
+    this.loadExperiences();   // метод загрузки впечатлений, чтобы автоматически загружались данные с сервера, если мы перезагружаем страницу!
   },
 };
 </script>
