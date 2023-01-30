@@ -23,6 +23,6 @@ https://www.youtube.com/watch?v=8DMQylZhaP4
 - export NODE_OPTIONS=--openssl-legacy-provider
 
 **App running at:**
-- Local:   http://localhost:8081/
+- Local:   http://localhost:8080/
 - Network: http://192.168.0.109:8081/
 

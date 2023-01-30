@@ -1,4 +1,5 @@
 <template>
+<div>
   <base-card>
     <base-button
       @click="setSelectedTab('stored-resources')"
@@ -9,6 +10,7 @@
   <keep-alive>
     <component :is="selectedTab"></component>
   </keep-alive>
+</div>
 </template>
 
 <script>

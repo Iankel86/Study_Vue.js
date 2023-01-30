@@ -1,10 +1,12 @@
 <template>
   <section>
-    <div>
-      <h3>{{ fullName }}</h3>
-      <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
-    </div>
-    <p>{{ infoText }}</p>
+    <base-card>   <!--2/3 "Это универсальный кусок оформления - подключенный" -->
+      <div>
+        <h3>{{ fullName }}</h3>
+        <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+      </div>
+      <p>{{ infoText }}</p>
+    </base-card>  <!--2/3 "Это универсальный кусок оформления - подключенный" -->
   </section>
 </template>
 
@@ -14,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>    /* при помощи scoped , этот стиль будет работать только здесь */
 section {
   margin: 2rem auto;
   max-width: 30rem;

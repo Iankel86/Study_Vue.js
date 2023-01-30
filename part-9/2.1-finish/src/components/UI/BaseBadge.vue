@@ -12,11 +12,11 @@ export default {
         'badge--author': this.type === 'author',
       };
     },
-  },
+  }
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .badge {
   display: inline-block;
   padding: 0.5rem 1rem;
