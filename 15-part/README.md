@@ -1,4 +1,4 @@
-**Часть 14** - 17 уроков. Анимация и переходы
+**Часть 15** - 20 уроков Vuex
 
 https://www.youtube.com/watch?v=GldjAduDdSs
 
@@ -12,6 +12,10 @@ https://www.youtube.com/watch?v=GldjAduDdSs
 
 **Функция маршрутизации:**
 - npm install --save vue-router@next
+
+**Установка компонента vuex:**
+- npm install --save vuex@next
+
 
 **App running at:**
 - Local:   http://localhost:8080/
