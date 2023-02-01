@@ -55,6 +55,9 @@
 **Функция маршрутизации:**
 - npm install --save vue-router@next
 
+**Установка компонента vuex:**
+- npm install --save vuex@next
+
 **App running at:**
 - Local:   http://localhost:8080/
 - Network: http://192.168.0.109:8081/
